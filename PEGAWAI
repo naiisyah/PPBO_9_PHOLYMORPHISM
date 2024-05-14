@@ -1,0 +1,96 @@
+import java.util.Objects;
+
+public class Pegawai {
+    private String nama;
+    private String departement;
+    private char jenisKelamin;
+
+    private Integer gaji;
+    private Integer cuti = 12;
+    private String nip;
+    public Pegawai(String nama, String departement, char jenisKelamin){
+        this.nama = nama;
+        this.departement = departement;
+        this.jenisKelamin = jenisKelamin;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public String getDepartement() {
+        return departement;
+    }
+
+    public void setDepartement(String departement) {
+        this.departement = departement;
+    }
+
+    public char getJenisKelamin() {
+        return jenisKelamin;
+    }
+
+    public void setJenisKelamin(char jenisKelamin) {
+        this.jenisKelamin = jenisKelamin;
+    }
+
+    public Integer getGaji() {
+        return gaji;
+    }
+
+    public void setGaji(Integer gaji) {
+        this.gaji = gaji;
+    }
+
+    public Integer getCuti() {
+        return cuti;
+    }
+    //overloading
+    public void setCuti(int cutiii) {
+        this.cuti += cutiii;
+    }
+    public void setCuti(String jenisCuti){
+        if (Objects.equals(jenisCuti, "pernikahan")){;
+            this.cuti += 2;
+        }else if (Objects.equals(jenisCuti, "persalinan")){
+            if(jenisKelamin == 'P') {
+                this.cuti += 90;
+            }else {
+                this.cuti += 3;
+            }
+        }
+    }
+
+    public String getNip() {
+        return nip;
+    }
+    //overloading
+    public void setNip(String nip) {
+        this.nip = nip;
+    }
+    public void setNip(int nipp) {
+        if (nipp < 10) {
+            this.nip = "P000" + nipp;
+        } else if (nipp <100) {
+            this.nip = "P00" + nipp;
+        } else if (nipp <1000) {
+            this.nip = "P0" + nipp;
+        }else {
+            this.nip = "P" + nipp;
+        }
+    }
+    public void displayInfo(){
+        System.out.println("Jabatan : Pegawai");
+        System.out.println("Nama :" + nama);
+        System.out.println("Departement :" + departement);
+        System.out.println("NIP :" + nip);
+        System.out.println("Gaji :" + gaji);
+        System.out.println("Thr :" + gaji);
+        System.out.println("Cuti :" + cuti);
+        System.out.println("=====================================");
+    }
+}
