@@ -1,0 +1,29 @@
+public class Manager extends Pegawai{
+    public Manager(String nama, String departement, char jenisKelamin) {
+        super(nama, departement, jenisKelamin);
+    }
+
+    @Override
+    public void setNip(int nipp) {
+        if (nipp < 10) {
+            this.setNip("M000" + nipp);
+        } else if (nipp <100) {
+            this.setNip( "M00" + nipp);
+        } else if (nipp <1000) {
+            this.setNip("M0" + nipp);
+        }else {
+            this.setNip("M" + nipp);
+        }
+    }
+    @Override
+    public void displayInfo(){
+        System.out.println("Jabatan : Manager" );
+        System.out.println("Nama :" + getNama());
+        System.out.println("Departement :" + getDepartement());
+        System.out.println("NIP :" + getNip());
+        System.out.println("Gaji :" + getGaji());
+        System.out.println("Thr :" + getGaji()*2);
+        System.out.println("Cuti :" + getCuti() );
+        System.out.println("=====================================");
+    }
+}
