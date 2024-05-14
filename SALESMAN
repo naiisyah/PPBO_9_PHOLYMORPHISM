@@ -1,0 +1,55 @@
+public class Salesman extends Pegawai{
+    private Integer target;
+    private Integer penjualan;
+    public Salesman(String nama, String departement, char jenisKelamin) {
+        super(nama, departement, jenisKelamin);
+    }
+
+    public Integer getTarget() {
+        return target;
+    }
+
+    public void setTarget(Integer target) {
+        this.target = target;
+    }
+
+    public Integer getPenjualan() {
+        return penjualan;
+    }
+
+    public void setPenjualan(Integer penjualan) {
+        this.penjualan = penjualan;
+    }
+
+    @Override
+    public void setNip(int nipp) {
+        if (nipp < 10) {
+            this.setNip( "S000" + nipp) ;
+        } else if (nipp <100) {
+            this.setNip("S00" + nipp);
+        } else if (nipp <1000) {
+            this.setNip("S0" + nipp);
+        }else {
+            this.setNip("S" + nipp);
+        }
+    }
+
+    public int thr() {
+        if (penjualan >= target) {
+            return getGaji()*2;
+        } else {
+            return getGaji();
+        }
+    }
+    @Override
+    public void displayInfo(){
+        System.out.println("Jabatan : Pegawai");
+        System.out.println("Nama :" + getNama());
+        System.out.println("Departement :" + getDepartement());
+        System.out.println("NIP :" + getNip());
+        System.out.println("Gaji :" + getGaji());
+        System.out.println("Thr :" + thr());
+        System.out.println("Cuti :" + getCuti() );
+        System.out.println("=====================================");
+    }
+}
